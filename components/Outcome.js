@@ -121,7 +121,7 @@ export default class Outcome extends Component {
 				<h4>{outcome.status}</h4>
 					<ul style={ulStyle}  ref={(el) => { this.ulEl = el; }}>
 						{outcome.result.rows.slice(0, this.state.limit).map((row, index, array) =>
-							<li key={index} data-lastrow={index+1==array.length?1:0} onMouseOver={this.onMouseOver} onClick={ev=>this.onClick(ev)}>{Object.keys(row).map((key, i, a) => <nobr key={index+'_'+i}><span style={spanStyle}><MyMarkup key={key+'_'+index} myItem={row[key]} myKey={key} /></span></nobr>)}</li>
+							<li style={{width:'max-content'}} key={index} data-lastrow={index+1==array.length?1:0} onMouseOver={this.onMouseOver} onClick={ev=>this.onClick(ev)}>{Object.keys(row).map((key, i, a) => <nobr key={index+'_'+i}><span style={spanStyle}><MyMarkup key={key+'_'+index} myItem={row[key]} myKey={key} /></span></nobr>)}</li>
 						)}
 					</ul>
 					<div onMouseOver={(ev)=>this.scrollOnMouseOver(ev, 'left')} style={{float: 'left'}}>&lt;</div>
@@ -135,7 +135,7 @@ export default class Outcome extends Component {
 				<h4>{outcome.status}</h4>
 					<ul style={ulStyle}>
 						{trans.slice(0, this.state.limit).map((row, index, array) => 
-							<li key={index} data-lastrow={index+1==array.length?1:0} onMouseOver={this.onMouseOver} onClick={ev=>this.onClick(ev)}>{Object.keys(row).map((key, i, a) => <nobr key={index+'_'+i}><span style={spanStyle}><MyMarkup key={key+'_'+index} myItem={row[key]} myKey={key} /></span></nobr>)}</li>
+							<li style={{width:'max-content'}} key={index} data-lastrow={index+1==array.length?1:0} onMouseOver={this.onMouseOver} onClick={ev=>this.onClick(ev)}>{Object.keys(row).map((key, i, a) => <nobr key={index+'_'+i}><span style={spanStyle}><MyMarkup key={key+'_'+index} myItem={row[key]} myKey={key} /></span></nobr>)}</li>
 						)}
 					<div onMouseOver={(ev)=>this.scrollOnMouseOver(ev, 'left')} style={{float: 'left'}}>&lt;</div>
 					<div onMouseOver={(ev)=>this.scrollOnMouseOver(ev, 'right')} style={{float: 'right'}}>&gt;</div>
