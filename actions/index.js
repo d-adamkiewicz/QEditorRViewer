@@ -1,5 +1,3 @@
-import fetch from 'isomorphic-fetch'
-
 export const ADD_SQL_TEXT = 'ADD_SQL_TEXT'
 export const UPDATE_SQL_TEXT = 'UPDATE_SQL_TEXT'
 export const SET_ACTIVE = 'SET_ACTIVE'
