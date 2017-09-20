@@ -5,9 +5,9 @@
   "repository": "https://github.com/d-adamkiewicz/QEditorRViewer",
   "author": "Darek Adamkiewicz <d_adamkiewicz@yahoo.co.uk>",
   "license": "MIT",
-	"scripts": {
-		"start": "node server/index.js"
-	},
+  "scripts": {
+    "start": "node server/index.js"
+  },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
@@ -16,6 +16,7 @@
     "hjson": "^3.1.0",
     "nconf": "^0.8.4",
     "pg": "^7.3.0",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",

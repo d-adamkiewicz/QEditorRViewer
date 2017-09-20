@@ -64,7 +64,7 @@ function renderByCatId(res, req, client, done, catId, callback) {
 				return console.error(err);
 			}
 			let active  = result.rows[0] 
-			client.query('select id, name from category order by id', function(err, result) {
+			client.query('select id, name from categories order by id', function(err, result) {
 				//call `done()` to release the client back to the pool
 				// we release client at third query
 				done();
