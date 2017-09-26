@@ -81,7 +81,7 @@ class App extends Component {
       <div style={divStyle}>
 		{ noOutcome
             ? <h4>No result yet</h4>
-            : <Outcome outcome = { outcome } /> 
+            : <Outcome outcome = { outcome } active = { active } /> 
         }
 		<ManageSqlTexts 
             active = { active }

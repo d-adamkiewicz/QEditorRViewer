@@ -47,7 +47,7 @@ class MyMarkup extends Component {
 export default class Outcome extends Component {
 	constructor(props) {
 		super(props)
-		this.state = { limit: 5, clicked: null }
+		this.state = { limit: 5, clicked: null, activeId: this.props.active.id }
 		// bind needed if you intend to use handler as
 		// onClick={this.onClick} 
 		// but no longer if
@@ -65,12 +65,25 @@ export default class Outcome extends Component {
 		}
 	}
 
-	onClick(ev, index) {
-		let li = this.getElTypeOf(ev.target, 'LI');
-		if (this.state.clicked) {
-			this.state.clicked.style.backgroundColor = 'transparent'
+	componentWillReceiveProps(nextProps) {
+		console.log('componentWillReceiveProps',this.props.active.id, this.state.activeId);
+		if (this.props.active.id != this.state.activeId) {
+			Array.from(this.state.clicked.childNodes).map(item=>{return Array.from(item.childNodes).map(elm=>{if (elm.nodeName=="SPAN"){return elm}})[0]}).forEach(el=>el.style.backgroundColor = 'transparent')
+			this.setState({activeId: this.props.active.id});
 		}
-		li.style.backgroundColor = '#cdcdcd';
+	}
+
+	onClick(ev, index) {
+		let li = this.getElTypeOf(ev.target, 'LI')
+			, aLiChilds = Array.from(li.childNodes)
+			, aSpans = aLiChilds.map(item=>{return Array.from(item.childNodes).map(elm=>{if (elm.nodeName=="SPAN"){return elm}})[0]});
+		if (this.state.clicked) {
+		//	this.state.clicked.style.backgroundColor = 'transparent'
+			Array.from(this.state.clicked.childNodes).map(item=>{return Array.from(item.childNodes).map(elm=>{if (elm.nodeName=="SPAN"){return elm}})[0]}).forEach(el=>el.style.backgroundColor = 'transparent')
+
+		}
+		aSpans.forEach(el=>el.style.backgroundColor = '#cdcdcd')
+		//li.style.backgroundColor = '#cdcdcd';
 		this.state.clicked = li;	
 	}
 
@@ -102,7 +115,8 @@ export default class Outcome extends Component {
             , overflowX: 'hidden'
             , overflowY: 'hidden'
             , border: '1px solid black'
-            , padding: '0 0.5em'
+            //, padding: '0 0.5em'
+            , padding: '0'
 			, width: 'auto'
 			//, height: '15em'
 			, lineHeight: '1em'
@@ -114,6 +128,7 @@ export default class Outcome extends Component {
         // this removes line break for '-' character in Chrome
         const spanStyle = {
             whiteSpace: 'nowrap'
+			, backgroundColor: 'transparent'
         }
         // use of <nobr></nobr> because 'nowrap' doesn't work for fixed fonts in IE11
 		if (outcome.status == "success") {

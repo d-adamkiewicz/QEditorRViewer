@@ -31,6 +31,7 @@ export default class ManageSqlTexts extends Component {
     }
     componentWillReceiveProps(nextProps) {
 		console.log('componentWillReceiveProps')
+		console.log(nextProps.active);
         //if (nextProps.defaultSqlText !== this.props.defaultSqlText || nextProps.defaultSqlText !== this.state.defaultSqlText) {
 		if (nextProps.active.updateKey !== this.props.active.updateKey) {
             this.setState({defaultSqlText: nextProps.defaultSqlText})

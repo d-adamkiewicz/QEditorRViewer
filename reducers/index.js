@@ -16,7 +16,7 @@ function active(state = {}, action) {
         case SET_ACTIVE:
             return {
                 id: action.id
-				, updateKey: Math.random()
+				, updateKey: action.updateKey 
             }         
         default:
             return state
