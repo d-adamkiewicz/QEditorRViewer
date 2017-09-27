@@ -47,7 +47,11 @@ class MyMarkup extends Component {
 export default class Outcome extends Component {
 	constructor(props) {
 		super(props)
-		this.state = { limit: 5, clicked: null, activeId: this.props.active.id }
+		this.state = { 
+				limit: 5
+				, clicked: null
+				, activeId: this.props.active.id 
+		}
 		// bind needed if you intend to use handler as
 		// onClick={this.onClick} 
 		// but no longer if
@@ -68,8 +72,12 @@ export default class Outcome extends Component {
 	componentWillReceiveProps(nextProps) {
 		console.log('componentWillReceiveProps',this.props.active.id, this.state.activeId);
 		if (this.props.active.id != this.state.activeId) {
-			Array.from(this.state.clicked.childNodes).map(item=>{return Array.from(item.childNodes).map(elm=>{if (elm.nodeName=="SPAN"){return elm}})[0]}).forEach(el=>el.style.backgroundColor = 'transparent')
-			this.setState({activeId: this.props.active.id});
+			let temp = { activeId: this.props.active.id };
+			if (this.state.clicked) {
+				Array.from(this.state.clicked.childNodes).map(item=>{return Array.from(item.childNodes).map(elm=>{if (elm.nodeName=="SPAN"){return elm}})[0]}).forEach(el=>el.style.backgroundColor = 'transparent')
+				temp.clicked = null;
+			} 
+			this.setState(temp);
 		}
 	}
 
