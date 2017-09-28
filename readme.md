@@ -6,6 +6,8 @@
 
 ### Steps:
 
+* Edit "auth.hjson" file entries to connect to your db  
+
 * Create necessary db structures and records 
 	
 ```sql
@@ -79,3 +81,15 @@ INSERT INTO my_table (name) VALUES ('Lorem ipsum dolor sit amet, consectetur adi
 -- 3 forms of displaying "name" column value
 SELECT name AS name1_25, name AS name2_15, name AS name3_60 FROM my_table;
 ```
+
+### TODO:
+
+* clean code, use "radium"
+
+* implement "display more/less rows" button instead of "display me more rows when hover on last row"
+
+* make "show left/right content of rows" buttons appear on the edges of the row clicked
+
+* use config file entries to point to table names that the app would treat as "categories", "active_category", "active", "sqls" 
+
+* provide video presentation of how this work 
