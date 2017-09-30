@@ -1,6 +1,6 @@
 ### Requirements:
 
-* Nodejs, yarn or npm
+* git, nodejs, yarn or npm
 
 * Runing postgresql server
 
@@ -49,13 +49,21 @@ CREATE TABLE active (
     CONSTRAINT id_uniq CHECK (id)
 );
 ```
+* Clone repository
+
+<code>/> git clone https://github.com/d-adamkiewicz/QEditorRViewer</code>
+
 * Install packages, when in app directory:
 
-<code>/>yarn install</code>
+<code>/> yarn install</code>
 
 * Run app
 
-<code>/>npm start</code> 
+<code>/> npm start</code> 
+
+### Presentation (on YouTube)
+
+* [Link](https://youtu.be/H67Nvwwg2f0) 
 
 ### Example usage 
 
@@ -92,4 +100,4 @@ SELECT name AS name1_25, name AS name2_15, name AS name3_60 FROM my_table;
 
 * use config file entries to point to table names that the app would treat as "categories", "active_category", "active", "sqls" 
 
-* provide video presentation of how this work 
+* ~~provide video presentation of how this work~~ 
